@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Number</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reverse Number</h1>
+    <div class="container">
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <button onclick="reverseNumber()">Reverse</button>
+        <p id="result"></p>
+    </div>
+    <script>
+function reverseNumber() {
+  const numberInput = document.getElementById('numberInput');
+  const number = numberInput.value;
+
+  // Check if input is empty or not a number
+  if (number === "" || isNaN(number)) {
+    alert("Please enter a valid number");
+    return;
+  }
+
+  // Convert the number to a string and split it into an array of digits
+  const digits = number.toString().split('');
+
+  // Reverse the array
+  digits.reverse();
+
+  // Join the reversed array back into a string
+  const reversedNumber = digits.join('');
+
+  // Display the reversed number
+  document.getElementById('result').textContent = `Reversed number: ${reversedNumber}`;
+}
+    </script>
+</body>
+</html>

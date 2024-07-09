@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Animation (Start/Stop)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        #train {
+            position: absolute;
+            top: 100px;
+            left: -100%; /* Start the train off-screen to the left */
+            animation: moveTrain 10s linear infinite;
+            animation-play-state: paused; /* Initially paused */
+        }
+
+        @keyframes moveTrain {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%; /* Move the train off-screen to the right */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="train" src="trai.jpg" alt="Train">
+    </div>
+    <button onclick="startAnimation()">Start</button>
+    <button onclick="stopAnimation()">Stop</button>
+    <script>
+        const train = document.getElementById('train');
+
+        function startAnimation() {
+            train.style.animationPlayState = 'running';
+        }
+
+        function stopAnimation() {
+            train.style.animationPlayState = 'paused';
+        }
+    </script>
+</body>
+</html>

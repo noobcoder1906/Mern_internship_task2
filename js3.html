@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication and Division</title>
+</head>
+<body>
+    <h1>Multiplication and Division</h1>
+    <div class="calculator">
+        <input type="number" id="firstNumber" placeholder="Enter first number">
+        <input type="number" id="secondNumber" placeholder="Enter second number">
+        <button onclick="calculate()">Multiply</button>
+        <button onclick="calculate()">Divide</button>
+    </div>
+    <p id="result"></p>
+    <script>
+        function calculate() {
+            const firstNumber = document.getElementById('firstNumber').value;
+            const secondNumber = document.getElementById('secondNumber').value;
+            const operator = event.target.innerText; // Get the text of the clicked button
+
+            // Check if input is empty or not a number
+            if (isNaN(firstNumber) || isNaN(secondNumber)) {
+                alert("Please enter valid numbers");
+                return;
+            }
+
+            let result;
+            if (operator === "Multiply") {
+                result = firstNumber * secondNumber;
+            } else if (operator === "Divide") {
+                if (secondNumber === 0) {
+                    alert("Cannot divide by zero");
+                    return;
+                }
+                result = firstNumber / secondNumber;
+            }
+
+            document.getElementById('result').textContent = `Result: ${result}`;
+        }
+    </script>
+</body>
+</html>
